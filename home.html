@@ -29,42 +29,46 @@
         </div>
     </nav>
 
-    <!-- Carousel -->
-    <div id="destinationCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Carousel data-bs-ride="carousel" -->
+    <div id="carouselExample" class="carousel slide">
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
         <div class="carousel-inner">
-
-            <!-- Item 1 -->
             <div class="carousel-item active">
-                <div class="carousel-text">
-                    <h1>Descobre o Japão</h1>
-                    <p>Faz uma viagem pelos destinos mais deslumbrantes do mundo. Das ruas vibrantes de Nova Iorque às antigas ruínas de Roma, cada imagem revela um lugar à espera de ser explorado.</p>
-                    <p>Quer seja para aventura, relaxamento ou descoberta, encontra o teu próximo destino connosco.</p>
-                    <a href="#" class="btn btn-outline-primary">Explorar</a>
-                </div>
-                <img src="imgs/japao.png" class="carousel-image" alt="Japão">
-            </div>
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="fs-1 fw-bold">Descobre o Japão</p>
+                        <p class="fs-6 lh-base">Faz uma viagem pelos destinos mais deslumbrantes do mundo. Das ruas vibrantes de Nova Iorque às antigas ruínas de Roma, cada imagem revela um lugar à espera de ser explorado.</p>
+                        <p class="fs-6">Quer seja para aventura, relaxamento ou descoberta, encontra o teu próximo destino connosco.</p>
+                    </div>
 
-            <!-- Item 3 -->
-            <div class="carousel-item">
-                <div class="carousel-text">
-                    <h1>Descobre Roma</h1>
-                    <p>Uma cidade com séculos de história e arquitetura fascinante, de ruínas antigas a obras-primas renascentistas.</p>
-                    <p>Roma espera para ser explorada, oferecendo uma combinação perfeita de arte, cultura e gastronomia.</p>
-                    <a href="#" class="btn btn-outline-primary">Explorar</a>
+                    <div class="col-md-6">
+                        <img src="imgs/japao.png" class="d-block w-10" alt="japao">
+                    </div>
                 </div>
-                <img src="imgs/japao.png" class="carousel-image" alt="Roma">
+            </div>
+            <div class="carousel-item">
+                <img src="imgs/japao.png" class="d-block w-50" alt="japao">
+            </div>
+            <div class="carousel-item">
+                <img src="imgs/japao.png" class="d-block w-50" alt="japao">
             </div>
         </div>
 
-        <!-- Carousel Controls -->
-        <a class="carousel-control-prev" href="#destinationCarousel" role="button" data-slide="prev">
+        <!-- Carousel Controls-->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only"></span>
-        </a>
-        <a class="carousel-control-next" href="#destinationCarousel" role="button" data-slide="next">
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only"></span>
-        </a>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
 
 

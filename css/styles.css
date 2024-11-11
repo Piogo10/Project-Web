@@ -1,24 +1,52 @@
+/* ------------------------------------------------------ CAROUSEL ------------------------------------------------------ */
+
+/* ---------------------------- CONTROLS  ---------------------------- */
+
+/* Engorda os controlos */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 10rem; 
+    height: 2rem;
+}
+
+/* Cor do da esquerda */
+.carousel-control-prev-icon {
+    filter: invert(49%) sepia(1%) saturate(0%) hue-rotate(180deg) brightness(96%) contrast(90%);
+}
+
+/* Cor do da direita */
+.carousel-control-next-icon {
+    filter: invert(26%) sepia(76%) saturate(5000%) hue-rotate(186deg) brightness(95%) contrast(95%);
+}
+
+/* Move o da esquerda mais pa esquerda */
+.carousel-control-prev {
+    left: -3rem;
+}
+
+/* Move o da direita mais pa direita */
+.carousel-control-next {
+    right: -3rem;
+}
+
+/* ---------------------------- Indicators  ---------------------------- */
+
+/* Faz os indicadores maiores */
+.carousel-indicators button {
+    width: 10rem;
+    height: 10rem;
+}
+
+/* Muda a cor do indicador selecionado */
+.carousel-indicators .active {
+    background-color: #1559b7;
+}
+
+/* ---------------------------- Slide  ---------------------------- */
+
+/* Cor do Background do Slide */
 .carousel-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem;
-    background-color: #f5f5f5;
+    background-color: #ecedec; /* Change to any color you prefer */
 }
-.carousel-text {
-    max-width: 50%;
-}
-.carousel-text h1 {
-    font-weight: bold;
-    font-size: 3rem;
-}
-.carousel-text p {
-    font-size: 1.1rem;
-    color: #333;
-}
-.carousel-text .btn {
-    margin-top: 1rem;
-}
-.carousel-image {
-    max-width: 40%;
-}
+
+/* ------------------------------------------------------ FIM CAROUSEL ------------------------------------------------------ */
