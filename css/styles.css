@@ -28,10 +28,16 @@ nav{
 /* ---------------------------- CONTROLS  ---------------------------- */
 
 /* Engorda os controlos */
-.carousel-control-prev-icon,
+.carousel-control-prev-icon{
+    width: 10rem; 
+    height: 2rem;
+    margin-right: 60%;
+}
+
 .carousel-control-next-icon {
     width: 10rem; 
     height: 2rem;
+    margin-left: 60%;
 }
 
 /* Cor do da esquerda */
@@ -65,8 +71,11 @@ nav{
 }
 
 .img-jap-carousel {
-    width: 60%;
-    height: 60%;
+    width: 80%;
+    height: 80%;
+    margin-top: 12%;
+    margin-bottom: 15%;
+    margin-left: 7%;
 }
 
 /* ------------------------------------------------------ FIM CAROUSEL ------------------------------------------------------ */
@@ -78,8 +87,12 @@ nav{
     margin-top: 5%;
 }
 
+body {
+    font-family: 'Outfit', sans-serif;
+}
+
 h1 {
-    font-size: 50px;
+    font-size: 40pt;
 }
 
 /* ------------------------------------------------------ FIM ESCOLHA O PAÍS ------------------------------------------------------ */
