@@ -44,16 +44,6 @@ nav{
     filter: invert(26%) sepia(76%) saturate(5000%) hue-rotate(186deg) brightness(95%) contrast(95%);
 }
 
-/* Move o da esquerda mais pa esquerda */
-.carousel-control-prev {
-    left: -3rem;
-}
-
-/* Move o da direita mais pa direita */
-.carousel-control-next {
-    right: -3rem;
-}
-
 /* ---------------------------- Indicators  ---------------------------- */
 
 /* Faz os indicadores maiores */
@@ -74,14 +64,22 @@ nav{
     background-color: #ecedec; /* Change to any color you prefer */
 }
 
+.img-jap-carousel {
+    width: 60%;
+    height: 60%;
+}
+
 /* ------------------------------------------------------ FIM CAROUSEL ------------------------------------------------------ */
 
 
 /* ------------------------------------------------------ ESCOLHA O PAÍS ------------------------------------------------------ */
 
-.img-jap-carousel {
-    width: 60%;
-    height: 60%;
+.section-margin-separation {
+    margin-top: 5%;
+}
+
+h1 {
+    font-size: 50px;
 }
 
 /* ------------------------------------------------------ FIM ESCOLHA O PAÍS ------------------------------------------------------ */
