@@ -1,3 +1,17 @@
+/* ------------------------------------------------------ GERAL ------------------------------------------------------ */
+.section-margin-separation {
+    margin-top: 5%;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+}
+
+h1 {
+    font-size: 40pt;
+}
+/* ------------------------------------------------------ FIM GERAL ------------------------------------------------------ */
+
 /* ------------------------------------------------------ NAVBAR ------------------------------------------------------ */
 nav{
     color: black;
@@ -66,13 +80,27 @@ nav{
 /* ---------------------------- Slide  ---------------------------- */
 
 /* Cor do Background do Slide */
-.carousel-item {
+.slide-1-jap {
     background-color: #ecedec; /* Change to any color you prefer */
 }
 
+.slide-2-aus {
+    background-color: #000000; /* Change to any color you prefer */
+    color: white;
+}
+
+/* ---------------------------- IMGS  ---------------------------- */
 .img-jap-carousel {
     width: 80%;
-    height: 80%;
+    height: auto;
+    margin-top: 12%;
+    margin-bottom: 15%;
+    margin-left: 7%;
+}
+
+.img-aus-carousel {
+    width: 80%;
+    height: auto;
     margin-top: 12%;
     margin-bottom: 15%;
     margin-left: 7%;
@@ -83,16 +111,22 @@ nav{
 
 /* ------------------------------------------------------ ESCOLHA O PAÍS ------------------------------------------------------ */
 
-.section-margin-separation {
-    margin-top: 5%;
+.flag-card {
+    border: 2px solid #ccc;
+    text-align: center;
+    padding: 6%;
 }
-
-body {
-    font-family: 'Outfit', sans-serif;
+.flag-card img {
+    width: 100%;
+    height: auto;
 }
-
-h1 {
-    font-size: 40pt;
+.flag-card:hover {
+    border: 2px solid #1559b7;
+}
+.flag-caption {
+    margin-top: 3%;
+    font-weight: bold;
+    margin-bottom: -2%;
 }
 
 /* ------------------------------------------------------ FIM ESCOLHA O PAÍS ------------------------------------------------------ */
