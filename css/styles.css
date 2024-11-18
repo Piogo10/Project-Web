@@ -81,12 +81,14 @@ nav{
 
 /* Cor do Background do Slide */
 .slide-1-jap {
-    background-color: #ecedec; /* Change to any color you prefer */
+    background-color: #ecedec;
+    height: 30rem;
 }
 
 .slide-2-aus {
     background-color: #000000; /* Change to any color you prefer */
     color: white;
+    height: 30rem;
 }
 
 /* ---------------------------- IMGS  ---------------------------- */
