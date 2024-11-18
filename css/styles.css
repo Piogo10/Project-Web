@@ -5,29 +5,39 @@ nav{
 }
 
 .btn-contact {
-    border: 2px solid blue;
+    border: 2px solid #1559b7;
     border-radius: 0;
-    color: black;
+    color: #1559b7;
     background-color: transparent;
     padding: 8px 16px;
     transition: background-color 0.3s, color 0.3s;
   }
 
-  .btn-contact:hover {
+.btn-contact:hover {
     color: white;
-    background-color: blue;
+    background-color: #1559b7;
     text-decoration: none;
-  }
+}
+
+/* ------------------------------------------------------ FIM NAVBAR ------------------------------------------------------ */
+
+
 
 /* ------------------------------------------------------ CAROUSEL ------------------------------------------------------ */
 
 /* ---------------------------- CONTROLS  ---------------------------- */
 
 /* Engorda os controlos */
-.carousel-control-prev-icon,
+.carousel-control-prev-icon{
+    width: 10rem; 
+    height: 2rem;
+    margin-right: 60%;
+}
+
 .carousel-control-next-icon {
     width: 10rem; 
     height: 2rem;
+    margin-left: 60%;
 }
 
 /* Cor do da esquerda */
@@ -38,16 +48,6 @@ nav{
 /* Cor do da direita */
 .carousel-control-next-icon {
     filter: invert(26%) sepia(76%) saturate(5000%) hue-rotate(186deg) brightness(95%) contrast(95%);
-}
-
-/* Move o da esquerda mais pa esquerda */
-.carousel-control-prev {
-    left: -3rem;
-}
-
-/* Move o da direita mais pa direita */
-.carousel-control-next {
-    right: -3rem;
 }
 
 /* ---------------------------- Indicators  ---------------------------- */
@@ -70,8 +70,29 @@ nav{
     background-color: #ecedec; /* Change to any color you prefer */
 }
 
+.img-jap-carousel {
+    width: 80%;
+    height: 80%;
+    margin-top: 12%;
+    margin-bottom: 15%;
+    margin-left: 7%;
+}
+
 /* ------------------------------------------------------ FIM CAROUSEL ------------------------------------------------------ */
 
 
-/* ------------------------------------------------------ teste ------------------------------------------------------ */
+/* ------------------------------------------------------ ESCOLHA O PAÍS ------------------------------------------------------ */
 
+.section-margin-separation {
+    margin-top: 5%;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+}
+
+h1 {
+    font-size: 40pt;
+}
+
+/* ------------------------------------------------------ FIM ESCOLHA O PAÍS ------------------------------------------------------ */
