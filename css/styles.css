@@ -108,6 +108,10 @@ nav{
     margin-left: 7%;
 }
 
+
+
+
+
 /* ------------------------------------------------------ FIM CAROUSEL ------------------------------------------------------ */
 
 
@@ -132,3 +136,32 @@ nav{
 }
 
 /* ------------------------------------------------------ FIM ESCOLHA O PAÍS ------------------------------------------------------ */
+
+
+/* ---------------------------- PERFIL ESTUDANTES  ---------------------------- */
+
+.card-perfil {
+    border: 2px solid #ccc;
+    text-align: center;
+    padding: 6%;
+}
+.card-perfil img {
+    width: 100%;
+    height: 265px;
+}
+.btn-more-info{
+    border: 2px solid #1559b7;
+    border-radius: 0;
+    color: #1559b7;
+    background-color: transparent;
+    padding: 8px 16px;
+    transition: background-color 0.3s, color 0.3s;
+    width: auto;
+  }
+
+.btn-more-info:hover {
+    color: white;
+    background-color: #1559b7;
+    text-decoration: none;
+}
+/* ---------------------------- FIM PERFIL ESTUDANTES  ---------------------------- */
