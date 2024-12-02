@@ -33,6 +33,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Fetch and display random countries on page load
     fetchRandomCountries();
 });
