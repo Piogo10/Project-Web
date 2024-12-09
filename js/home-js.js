@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cardDiv.className = `col-md-3 ${index === 0 ? 'selected' : ''}`;
 
             cardDiv.innerHTML = `
-                <div class="card flag-card ${index === 0 ? 'selected' : ''}">
+                <div class="card flag-card ${index === 0 ? 'selected' : ''}" id="${country.cca3}">
                     <img src="${country.flags.svg}" class="card-img-top rounded-0" alt="${country.name.common} Flag">
                     <div class="card-body pb-0">
                         <p class="flag-caption">${country.translations.por?.common || country.name.common}</p>

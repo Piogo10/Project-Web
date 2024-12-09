@@ -35,6 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
             `;
+
+            cardDiv.querySelector('.flag-card').addEventListener('click', () => {
+                window.location.href = `detail-country.html?cca=${country.cca3}`;
+            });
+
             countryCardsContainer.appendChild(cardDiv);
         });
     }
