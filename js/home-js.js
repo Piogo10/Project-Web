@@ -1,17 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
     const countryCardsContainer = document.getElementById('country-cards');
 
-    async function fetchRandomCountries() {
-        try {
-            const response = await fetch('https://restcountries.com/v3.1/all');
-            const countries = await response.json();
+    function fetchRandomCountries() {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://restcountries.com/v3.1/all', true);
 
-            const randomCountries = countries.sort(() => 0.5 - Math.random()).slice(0, 3);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) { // Acabou o request
+                if (xhr.status === 200) { // HTTP OK
+                    try {
+                        const countries = JSON.parse(xhr.responseText);
+                        const randomCountries = countries.sort(() => 0.5 - Math.random()).slice(0, 3);
 
-            displayCountries(randomCountries);
-        } catch (error) {
-            console.error('Error fetching country data:', error);
-        }
+                        displayCountries(randomCountries);
+                    } catch (error) {
+                        console.error('Error parsing country data:', error);
+                    }
+                } else {
+                    console.error('Error fetching country data:', xhr.status, xhr.statusText);
+                }
+            }
+        };
+
+        xhr.onerror = function () {
+            console.error('Network error while fetching country data');
+        };
+
+        xhr.send();
     }
 
     function displayCountries(countries) {
