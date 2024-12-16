@@ -1,16 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const cca = urlParams.get('cca');
+    const hash = window.location.hash;
+    const cca = hash ? hash.substring(1) : null;
+
+    console.log(cca)
 
     if (cca) {
-        fetchCountryDetails(cca);
+        getCountryDetails(cca);
     }
     else {
         console.log("EERO")
         window.location.href = 'home.html';
     }
 
-    async function fetchCountryDetails(cca) {
+    async function getCountryDetails(cca) {
         try {
             const response = await fetch(`https://restcountries.com/v3.1/alpha/${cca}`);
             const country = await response.json();
@@ -25,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <tbody>
                             <tr><td>Nome Comum:</td><td>${countryData.name?.common || 'N/A'}</td></tr>
                             <tr><td>Nome Oficial:</td><td>${countryData.name?.official || 'N/A'}</td></tr>
-                            <tr><td>Nome Nativo:</td><td>${countryData.name?.nativeName?.por?.common || 'N/A'} / ${countryData.name?.nativeName?.por?.official || 'N/A'}</td></tr>
+                            <tr><td>Nome Nativo:</td><td>${countryData.name?.nativeName?.deu?.common || 'N/A'} / ${countryData.name?.nativeName?.deu?.official || 'N/A'}</td></tr>
                             <tr><td>Bandeira:</td><td><img src="${countryData.flags?.png}" class="img-fluid" alt="Bandeira"></td></tr>
                             <tr><td>Códigos ISO:</td><td>Alpha-2: ${countryData.cca2 || 'N/A'}, Alpha-3: ${countryData.cca3 || 'N/A'}, Numérico: ${countryData.ccn3 || 'N/A'}</td></tr>
                             <tr><td>TLD (Domínio):</td><td>${countryData.tld?.join(', ') || 'N/A'}</td></tr>
