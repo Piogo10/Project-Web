@@ -1,36 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const countryCardsContainer = document.getElementById('country-cards');
+    const countryCard = document.getElementById('country-cards');
 
-    async function fetchRandomCountries() {
-        try {
-            const response = await fetch('https://restcountries.com/v3.1/all');
-            const countries = await response.json();
+    function loadRandomCountries() {
 
-            const randomCountries = countries.sort(() => 0.5 - Math.random()).slice(0, 3);
+        var url = "https://restcountries.com/v3.1/all"
 
-            displayCountries(randomCountries);
-        } catch (error) {
-            console.error('Error fetching country data:', error);
-        }
+        $.ajax({
+            url: url,
+            method: "GET",
+            success: function (countries) {
+                const randomCountries = countries.sort(() => Math.random() - 0.5).slice(0, 3); // 3 paises random
+                showCountries(randomCountries);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
     }
 
-    function displayCountries(countries) {
-        countryCardsContainer.innerHTML = '';
+    function showCountries(countries) {
+        countryCard.innerHTML = '';
 
         countries.forEach((country, index) => {
+
             const cardDiv = document.createElement('div');
             cardDiv.className = `col-md-3 ${index === 0 ? 'selected' : ''}`;
+
+            const countryName = country.translations.por?.common || country.name.common;
             const localStorage = window.localStorage;
 
             cardDiv.innerHTML = `
                 <div class="card flag-card ${index === 0 ? 'selected' : ''}">
-                    <img src="${country.flags.svg}" class="card-img-top rounded-0" alt="${country.name.common} Flag">
+                    <img src="${country.flags.svg}" class="card-img-top rounded-0" alt="${countryName} Flag">
                     <div class="card-body d-flex justify-content-between align-items-center">
-                        <p class="flag-caption">${country.translations.por?.common || country.name.common}</p>
+                        <p class="flag-caption">${countryName}</p>
                         <i class="bi ml-auto star" style="font-size: 1.3rem; color: black;"></i>
                      </div>
-                </div>
-            `;
+                </div>`;
 
             if (typeof localStorage !== 'undefined') {
                 const favoriteCountries = JSON.parse(localStorage.getItem('favoriteCountries')) || [];
@@ -58,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (event.target.classList.contains('bi-star')) {
 
                         favoriteCountries.push(country.cca3);
-                        localStorage.setItem('favCountrys', JSON.stringify(favoriteCountries));
+                        localStorage.setItem('favoriteCountries', JSON.stringify(favoriteCountries));
 
                         event.target.classList.remove('bi-star');
                         event.target.classList.add('bi-star-fill');
@@ -69,8 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         if (countryIndex > -1) {
                             favoriteCountries.splice(countryIndex, 1);
-                            console.log("fa: ",favoriteCountries);
-                            localStorage.setItem('favCountrys', JSON.stringify(favoriteCountries));
+                            console.log("fa: ", favoriteCountries);
+                            localStorage.setItem('favoriteCountries', JSON.stringify(favoriteCountries));
                         }
 
                         event.target.classList.remove('bi-star-fill');
@@ -80,9 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            countryCardsContainer.appendChild(cardDiv);
+            countryCard.appendChild(cardDiv);
         });
     }
 
-    fetchRandomCountries();
+    // MAIN
+    loadRandomCountries();
 });

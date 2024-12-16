@@ -1,31 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const countryCardsContainer = document.getElementById('country-cards');
+    const countryCard = document.getElementById('country-cards');
     const searchBar = document.getElementById('search-bar');
     let allCountries = [];
 
-    async function fetchRandomCountries() {
-        try {
-            const response = await fetch('https://restcountries.com/v3.1/all');
-            const countries = await response.json();
+    function loadCountrys() {
 
-            countries.sort((a, b) =>
-                (a.translations.por.common || a.name.common || '').localeCompare(b.translations.por.common || b.name.common || '', 'pt', { sensitivity: 'base' })
-            );
+        var url = "https://restcountries.com/v3.1/all"
 
-            allCountries = countries;
-
-            displayCountries(countries);
-        } catch (error) {
-            console.error('Error fetching country data:', error);
-        }
+        $.ajax({
+            url: url,
+            method: "GET",
+            success: function (countries) {
+                countries = countries.sort(() => Math.random() - 0.5); // Baralha pra nunca vir igual
+                allCountries = countries;
+                showCountries(countries);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
     }
 
-    function displayCountries(countries) {
-        countryCardsContainer.innerHTML = '';
+    function showCountries(countries) {
+        countryCard.innerHTML = '';
 
         countries.forEach((country, index) => {
+
             const cardDiv = document.createElement('div');
             cardDiv.className = `col-md-3 ${index === 0 ? 'selected' : ''}`;
+
             const countryName = country.translations.por?.common || country.name.common;
             const localStorage = window.localStorage;
 
@@ -36,10 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p class="flag-caption mb-0">${countryName}</p>
                         <i class="bi ml-auto star" style="font-size: 1.3rem; color: black;"></i>
                      </div>
-                </div>
-            `;
+                </div>`;
 
             if (typeof localStorage !== 'undefined') {
+
                 const favoriteCountries = JSON.parse(localStorage.getItem('favoriteCountries')) || [];
 
                 if (favoriteCountries.includes(country.cca3)) {
@@ -62,10 +65,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     const favoriteCountries = JSON.parse(localStorage.getItem('favoriteCountries')) || [];
 
+                    console.log("fc: ", favoriteCountries);
+
                     if (event.target.classList.contains('bi-star')) {
 
                         favoriteCountries.push(country.cca3);
-                        localStorage.setItem('favCountrys', JSON.stringify(favoriteCountries));
+
+                        localStorage.setItem('favoriteCountries', JSON.stringify(favoriteCountries));
 
                         event.target.classList.remove('bi-star');
                         event.target.classList.add('bi-star-fill');
@@ -76,8 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         if (countryIndex > -1) {
                             favoriteCountries.splice(countryIndex, 1);
-                            console.log("fa: ",favoriteCountries);
-                            localStorage.setItem('favCountrys', JSON.stringify(favoriteCountries));
+                            console.log("fa: ", favoriteCountries);
+                            localStorage.setItem('favoriteCountries', JSON.stringify(favoriteCountries));
                         }
 
                         event.target.classList.remove('bi-star-fill');
@@ -87,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            countryCardsContainer.appendChild(cardDiv);
+            countryCard.appendChild(cardDiv);
         });
     }
 
@@ -98,8 +104,11 @@ document.addEventListener('DOMContentLoaded', () => {
             (country.translations.por.common || country.name.common || '').toLowerCase().includes(searchQuery)
         );
 
-        displayCountries(filteredCountries);
+        showCountries(filteredCountries);
     });
 
-    fetchRandomCountries();
+
+
+    // MAIN
+    loadCountrys();
 });
