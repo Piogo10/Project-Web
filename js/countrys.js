@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             (country.translations.por.common || country.name.common || '').toLowerCase().includes(searchQuery)
         );
 
+        //labels ficarem todas pipis
         errorMSG.style.display = filteredCountries.length === 0 ? 'block' : 'none';
         errorMSG.textContent = filteredCountries.length === 0 ? 'Sem resultados...' : '';
 
@@ -92,6 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // MAIN
+    // MAIN 
     loadCountries();
 });
