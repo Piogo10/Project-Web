@@ -21,24 +21,31 @@ a{
 
 nav{
     color: black;
+    font-weight: bold;
     font-family: Montserrat, sans-serif;
 }
 /* ------------------------------------------------------ FIM GERAL ------------------------------------------------------ */
 
 /* ------------------------------------------------------ NAVBAR ------------------------------------------------------ */
 .btn-contact {
+    position: relative;
     border: 2px solid #1559b7;
     border-radius: 0;
     color: #1559b7;
     background-color: transparent;
     padding: 8px 16px;
     transition: background-color 0.3s, color 0.3s;
+    z-index: 10;
   }
 
 .btn-contact:hover {
     color: white;
     background-color: #1559b7;
     text-decoration: none;
+}
+
+.nav-link:hover {
+    color: #1559b7;
 }
 
 /* ------------------------------------------------------ FIM NAVBAR ------------------------------------------------------ */
@@ -50,10 +57,15 @@ nav{
 /* ---------------------------- CONTROLS  ---------------------------- */
 
 /* Engorda os controlos */
-.carousel-control-prev-icon{
-    width: 10rem; 
+.carousel-control-prev-icon {
+    width: 2rem;
     height: 2rem;
     margin-right: 60%;
+}
+
+.carousel-control-prev, 
+.carousel-control-next {
+    z-index: 5; 
 }
 
 .carousel-control-next-icon {
@@ -62,12 +74,8 @@ nav{
     margin-left: 60%;
 }
 
-/* Cor do da esquerda */
-.carousel-control-prev-icon {
-    filter: invert(49%) sepia(1%) saturate(0%) hue-rotate(180deg) brightness(96%) contrast(90%);
-}
 
-/* Cor do da direita */
+.carousel-control-prev-icon,
 .carousel-control-next-icon {
     filter: invert(26%) sepia(76%) saturate(5000%) hue-rotate(186deg) brightness(95%) contrast(95%);
 }
@@ -165,8 +173,9 @@ nav{
 }
 
 .section3-text-padding {
-    padding-left: 260px; 
-    padding-right: 260px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.5;
     color: #ffffff;
     filter: brightness(81%);
 }
@@ -177,7 +186,7 @@ nav{
 }
 
 .full-width-image {
-    background-image: url(/imgs/background_section3.png);
+    background-image: url('../imgs/background_section3.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
