@@ -15,9 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
             url: url,
             method: "GET",
             success: function (countries) {
-                countries.sort((a, b) => (a.translations.por.common || a.name.common || '').localeCompare(b.translations.por.common || b.name.common || '', 'pt', { sensitivity: 'base' })); 
+                countries.sort((a, b) =>
+                    (a.translations.por.common || a.name.common || '').localeCompare(b.translations.por.common || b.name.common || '', 'pt', { sensitivity: 'base' })
+                );
                 allCountries = countries;
-                showCountries(countries);
+                showCountries(allCountries);
             },
             error: function (error) {
                 console.log(error);
